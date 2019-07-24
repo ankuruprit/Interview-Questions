@@ -1,0 +1,35 @@
+# Given a list of possibly overlapping intervals, return a new list of intervals where all overlapping intervals have been merged.
+
+# The input list is not necessarily ordered in any way.
+
+# For example, given [(1, 3), (5, 8), (4, 10), (20, 25)], you should return [(1, 3), (4, 10), (20, 25)].
+
+
+def getnewlist(oldlist):
+    newlist = []    
+    if len(oldlist) > 0:        
+        for l in oldlist:   
+            isExistsF1 = False
+            isExistsF2 = False         
+            if newlist == []:
+                newlist.append(l)
+            else:
+                r1 = l[0]
+                r2 = l[1]
+                previtem = newlist[-1]                
+                for n in range(previtem[0], previtem[1]):
+                    if n == r1:
+                        isExistsF1 = True
+                    if n == r2:
+                        isExistsF2 = True
+                if isExistsF1 == False or isExistsF2 == False:
+                    newlist.append(l)
+    elif len(oldlist) == 1:
+        newlist.append(oldlist)
+    print(newlist)
+
+
+oldlist = [(1, 4), (5, 8), (4, 10), (20, 25)]
+oldlist.sort()
+print(oldlist)
+getnewlist(oldlist)
