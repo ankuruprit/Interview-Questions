@@ -1,0 +1,21 @@
+# This problem was asked by Lyft.
+# Given a list of integers and a number K, return which contiguous elements of the list sum to K.
+# For example, if the list is [1, 2, 3, 4, 5] and K is 9, then it should return [2, 3, 4], since 2 + 3 + 4 = 9.
+
+def getnums(listnums, k):
+  listlen = len(listnums)
+  sumval = 0
+  finallist = []
+  for n in range(listlen):
+    sumval = sumval + listnums[n]
+    finallist.append(listnums[n])
+    if sumval == k:
+      print(finallist)
+      break
+  else:
+    if listlen > 0:
+      listnums.pop(0)      
+      getnums(listnums, k) // use recursion
+
+listnums = [1, 2, 3, 4, 5, 8, 11]
+getnums(listnums, 19) // output will be [8, 11]
