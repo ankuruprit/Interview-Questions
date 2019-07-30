@@ -1,0 +1,23 @@
+# return all unique items in L that appears atleast N times
+# [[a,a,b,b,c],2] = [a,b]
+
+
+def listChars(L, N):
+    result = {}
+    outputList = []
+    cnt = 1
+    for n in L:
+        if n not in result:
+            result[n] = cnt
+        else:
+            result[n] = result[n] + 1
+    for k in result.keys():
+        if result[k] >= N:
+            outputList.append(k)
+    print(outputList)
+
+
+mylist = ['a','b','b','b','a','c', 'c', 'd']
+nums = 2
+
+listChars(mylist, nums)  # output ['a', 'b', 'c']
