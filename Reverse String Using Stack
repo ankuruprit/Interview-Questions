@@ -1,0 +1,38 @@
+# Reverse String Using Stack
+
+
+class Stack:
+    def __init__(self):
+        self.top = -1
+        self.myarr = {}
+
+    def push(self, data):
+        self.top = self.top + 1
+        self.myarr[self.top] = data
+
+    def pop(self):
+        if len(self.myarr) < 1:
+            print("No Element to pop")
+        val = self.myarr[self.top]
+        self.top = self.top - 1
+        return val
+
+    def reverseString(self, mystr):
+        revStr = ''
+        for x in mystr:
+            self.push(x)
+        if len(self.myarr) > 0:
+            for i in range(len(self.myarr)):
+                revStr = revStr + self.pop()
+            print(revStr)
+
+    
+if __name__ == '__main__':
+    mystr = 'Hello'
+    stack = Stack()
+    stack.reverseString(mystr)
+
+    # output
+    # olleH
+
+
