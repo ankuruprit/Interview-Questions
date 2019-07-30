@@ -1,0 +1,50 @@
+# Stack Implementation Using Dictionaries
+
+
+class Stack:
+    def __init__(self):
+        self.top = -1
+        self.myarr = {}
+
+    def push(self, data):
+        if self.top == max(self.myarr) - 1:
+            print("Error Stack Overflow")
+            return
+        self.top = self.top + 1
+        self.myarr[self.top] = data
+
+    def pop(self):
+        if len(self.myarr) < 1:
+            print("No Element to pop")
+        self.top = self.top - 1
+
+    def topval(self):
+        return str(self.myarr[self.top])
+
+    def print(self):
+        result = ''
+        for i in self.myarr.keys():
+            result = result + ', ' + str(self.myarr[i])
+        if result.startswith(', '):
+            print(result[2:])
+
+
+if __name__ == '__main__':
+    stack = Stack()
+    stack.push(2)
+    stack.push(12)
+    stack.push(4)
+    stack.pop()
+    stack.print()
+    stack.push(6)
+    stack.push(2)
+    stack.push(8)
+    stack.print()
+    print(stack.topval())
+
+    # output
+    # 2, 12, 4
+    # 2, 12, 6, 2, 8
+    # 8
+
+
