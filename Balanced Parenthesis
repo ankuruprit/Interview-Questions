@@ -1,0 +1,51 @@
+# Check for balanced parenthesis
+
+
+class Stack:
+    def __init__(self):
+        self.top = -1
+        self.myarr = {}
+
+    def push(self, data):
+        self.top = self.top + 1
+        self.myarr[self.top] = data
+
+    def pop(self):
+        if len(self.myarr) < 1:
+            print("No Element to pop")
+        self.myarr.pop(self.top)
+        self.top = self.top - 1
+
+    def topval(self):
+        return str(self.myarr[self.top])
+
+    def isbalanced(self, exp):
+        for x in exp:
+            if x == '[' or x == '(' or x == '{':
+                self.push(x)
+            elif x == ']' or x == ')' or x == '}':
+                if x == ']' and self.topval() == '[':
+                    self.pop()
+                elif x == ')' and self.topval() == '(':
+                    self.pop()
+                elif x == '}' and self.topval() == '{':
+                    self.pop()
+                else:
+                    return False
+            else:
+                return False
+        if len(self.myarr) > 0:
+            return False
+        else:
+            return True
+
+
+if __name__ == '__main__':
+    exp = '[{()}]'
+    stack = Stack()
+    print(stack.isbalanced(exp))
+
+    # output
+    # True
+
+
