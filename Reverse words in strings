@@ -1,0 +1,8 @@
+# Given a string of words delimited by spaces, reverse the words in string. For example, given "hello world here", return "here world hello"
+
+strname = 'hello world here'
+strname = strname.split()
+newname = ''
+for i in strname[::-1]:
+  newname = newname + ' ' + i
+print(newname)
