@@ -1,0 +1,37 @@
+# This problem was asked by Microsoft.
+
+# Compute the running median of a sequence of numbers. That is, given a stream of numbers, print out the median of the list so far on each new element.
+
+# Recall that the median of an even-numbered list is the average of the two middle numbers.
+
+def getMedian(arr):
+  # temp array to hold each value in sorted
+  temparr = []
+  for x in arr:
+    temparr.append(x)
+    temparr.sort()
+    if len(temparr) == 1:
+      print (temparr[0])
+    elif len(temparr)%2 == 0:  # check for even numbered length array
+      l = len(temparr)
+      firstNo = temparr[int(l/2)-1]
+      secondNo = temparr[int(l/2)]
+      avg = (firstNo + secondNo)/2
+      print (avg)
+    else:
+      l = len(temparr)
+      avg = temparr[round(l/2) - 1]
+      print(avg)
+
+
+arr = [2, 1, 5, 7, 2, 0, 5]
+getMedian(arr)
+
+# Output 
+# 2
+# 1.5
+# 2
+# 3.5
+# 2
+# 2
+# 2
