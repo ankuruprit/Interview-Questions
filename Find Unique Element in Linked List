@@ -1,0 +1,50 @@
+# Find unique element in linked list
+
+class Node:
+    def __init__(self,data=None):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = Node()
+
+    def insert(self, data):
+        temp = Node(data)
+        temp.next = self.head
+        self.head = temp
+
+    def print(self):
+        optlist = []
+        temp = self.head
+        while temp.next is not None:
+            optlist.append(temp.data)
+            temp = temp.next
+        print(optlist)
+        self.findunique(optlist)
+
+    def findunique(self, mylist):
+        dic = {}
+        arr = []
+        for x in mylist:
+            if x not in dic:
+                dic[x] = 1
+            else:
+                dic[x] += 1
+        for y in dic:
+            if dic[y] == 1:
+                arr.append(y)
+        if len(arr) == len(mylist):
+            print('No unique element')
+        else:
+            print(arr)
+
+if __name__ == '__main__':
+    my_list = LinkedList()
+    my_list.insert(5)
+    my_list.insert(1)
+    my_list.insert(4)
+    my_list.insert(8)
+    my_list.insert(9)
+    my_list.insert(3)
+    my_list.print()
