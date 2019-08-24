@@ -1,0 +1,37 @@
+# Get Multiplication of all numbers in the list except current ith position. Do it without division
+# For ex arr = [1, 2, 3] | output would be [6, 3, 2]
+
+
+def products(nums):
+    # Generate prefix Products
+    prefix_product = []
+    for num in nums:
+        if prefix_product:
+            prefix_product.append(prefix_product[-1] * num)
+        else:
+            prefix_product.append(num)
+    print(prefix_product)
+
+    #Generate suffix Products
+    suffix_products = []
+    for num in reversed(nums):
+        if suffix_products:
+            suffix_products.append(suffix_products[-1] * num)
+        else:
+            suffix_products.append(num)
+    suffix_products = list(reversed(suffix_products))
+    print(suffix_products)
+
+    #Get Result by multiplying suffix and prefix
+    result = []
+    for i in range(len(nums)):
+        if i == 0:
+            result.append(suffix_products[i + 1])
+        elif i == len(nums) - 1:
+            result.append(prefix_product[i - 1])
+        else:
+            result.append(prefix_product[i-1] * suffix_products[i + 1])
+    print(result)
+
+nums = [2, 4, 6, 8]
+products(nums)
