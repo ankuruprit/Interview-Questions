@@ -1,0 +1,24 @@
+# Find  anagrams indices
+
+# for ex w = ab and s = 'abxaba', should return [0, 3, 4]
+
+from collections import Counter
+
+def isanagram(w1, w2):
+    return Counter(w1) == Counter(w2)
+
+
+def anagram_indices(w2, s):
+    result = []
+    pivotpos = 1
+    for i in s:
+        w1 = i + s[pivotpos]
+        if isanagram(w1, w2) or (w1 == w2):
+            result.append(pivotpos - 1)
+        if pivotpos < len(s) - 1:
+            pivotpos += 1
+    print(result)
+
+w2 = 'ab'
+s = 'abxabarbcba'
+anagram_indices(w2, s)
