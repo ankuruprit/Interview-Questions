@@ -1,0 +1,22 @@
+# Generate Palindrome pairs
+
+# for ex given list ['code','edoc', 'da', 'd'] should return [(0,1), (1, 0), (2, 3)]
+
+def isPalindrome(word):
+    return word == word[::-1]
+
+
+def palindrome_pairs(words):
+    result = []
+
+    for i, word1 in enumerate(words):
+        for j, word2 in enumerate(words):
+            if i == j:
+                continue
+            if isPalindrome(word1 + word2):
+                result.append((i, j))
+    print(result)
+
+
+arr = ['code', 'edoc', 'da', 'd']
+palindrome_pairs(arr)
