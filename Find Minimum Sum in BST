@@ -1,0 +1,46 @@
+class BstNode:
+    def __init__(self, data=None):
+        self.data = data
+        self.left = None
+        self.right = None
+
+class BstTree:
+    # To insert data in BST
+    def insert(self, root, node):
+        if root is None:
+            root = node
+        else:
+            if root.data > node.data:
+                if root.left is None:
+                    root.left = node
+                else:
+                    self.insert(root.left, node)
+            else:
+                if root.right is None:
+                    root.right = node
+                else:
+                    self.insert(root.right, node)
+
+    def findminsum(self, root):
+        if root is None:
+            print("Tree is empty")
+        else:
+            result = root.data
+            while root.left is not None:
+                root = root.left
+                result += root.data
+            print('Smallest Sum is {}'.format(result))
+
+
+if __name__ == '__main__':
+    r = BstNode(15)
+    curr = BstTree()
+
+    curr.insert(r, BstNode(10))
+    curr.insert(r, BstNode(20))
+    curr.insert(r, BstNode(25))
+    curr.insert(r, BstNode(8))
+    curr.insert(r, BstNode(12))
+    curr.insert(r, BstNode(14))
+
+    curr.findminsum(r)
