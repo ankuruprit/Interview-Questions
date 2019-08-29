@@ -1,0 +1,19 @@
+# Function to find mirror characters
+
+def mirrorchars(str1, n):
+    original = 'abcdefghijklmnopqrstuvwxyz'
+    reverse = 'zyxwvutsrqponmlkjihgfedcba'
+    str1 = list(str1)
+    result = ''.join(str1[:n])
+
+    for i in range(n, len(str1)):
+        char = str1[i]
+        index = original.index(char)
+        result = result + reverse[index]
+    print(''.join(result))
+
+
+str1 = 'geeksabc'
+mirrorchars(str1, 5)
+
+# output geekszyx
