@@ -1,0 +1,20 @@
+#Given a 26 letter character set, which is equivalent to character set of English alphabet i.e. (abcd….xyz) and act as a relation. 
+# We are also given several sentences and we have to translate them with the help of given new character set.
+
+def replace_chars(char_set, original_set, inputset):
+    char_set = list(char_set)
+    original_set = list(original_set)
+    inputset = list(inputset)
+    output = ''
+    for char in inputset:
+        i = char_set.index(char)
+        output += original_set[i]
+    print(output)
+
+char_set = 'qwertyuiopasdfghjklzxcvbnm'
+original_set = 'abcdefghijklmnopqrstuvwxyz'
+inputset = 'utta'
+
+replace_chars(char_set, original_set, inputset)
+
+# output = 'geek'
