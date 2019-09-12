@@ -1,0 +1,27 @@
+# Given a name, print the initials of a name(uppercase) with last name(with first alphabet in uppercase) written in full separated by dots.
+
+# Input : geeks for geeks
+# Output : G.F.Geeks
+#
+# Input : mohandas karamchand gandhi
+# Output : M.K.Gandhi
+
+def init_name(name):
+    list_name = name.split(' ')
+    list_length = len(list_name)
+    new_name = ''
+    if len(list_name) > 0:
+        for i in range(list_length):
+            if i is 0:
+                first_init = str(list_name[i][:1]).upper()
+                new_name += first_init + "."
+            elif i is (list_length - 1):
+                new_name += str(list_name[i]).capitalize()
+            else:
+                middle_init = str(list_name[i][:1]).upper()
+                new_name += middle_init + "."
+        print(new_name)
+
+
+name = 'mohandas karamchand gandhi'
+init_name(name)
