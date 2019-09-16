@@ -1,0 +1,25 @@
+# Given two strings, check if s1 is there in s2.
+
+
+def string_present(s1, s2):
+    pivot_pos = len(s1)
+    lens2 = len(s2)
+
+    for i in range(lens2):
+        if i > (lens2 - len(s1)):
+            print('String not present')
+            break
+        else:
+            curr_word = s2[i:pivot_pos]
+            if curr_word == s1:
+                print('String is present')
+                break
+            else:
+                pivot_pos += 1
+
+
+
+s1 = 'geeks'
+s2 = 'abc Tree Fod fgeeksors'
+
+string_present(s1, s2)
