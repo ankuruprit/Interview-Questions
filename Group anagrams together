@@ -1,0 +1,20 @@
+# Given an array of strings, group anagrams together.
+# Example:
+# Input: ["eat", "tea", "tan", "ate", "nat", "bat"], 
+# Output: [ ["ate","eat","tea"], ["nat","tan"], ["bat"] ]
+
+def group_anagram(arr):
+  new_arr = {}
+  for i in range(len(arr)):
+    word = list(arr[i])
+    word.sort()   
+    if ''.join(word) not in new_arr:
+      new_arr[''.join(word)] = arr[i]
+    else:
+      new_arr[''.join(word)] += ',' + arr[i]
+  result = list(new_arr.values())
+  print(result)
+
+arr = ["eat", "tea", "tan", "ate", "nat", "bat"]
+
+group_anagram(arr)
