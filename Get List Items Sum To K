@@ -12,10 +12,12 @@ def getnums(listnums, k):
     if sumval == k:
       print(finallist)
       break
-  else:
-    if listlen > 0:
-      listnums.pop(0)      
-      getnums(listnums, k) // use recursion
+ 
+  if listlen > 0:
+    listnums.pop(0)      
+    getnums(listnums, k) # use recursion
 
 listnums = [1, 2, 3, 4, 5, 8, 11]
-getnums(listnums, 19) // output will be [8, 11]
+getnums(listnums, 19) 
+
+# output will be [8, 11]
