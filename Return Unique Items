@@ -3,18 +3,12 @@
 
 
 def listChars(L, N):
-    result = {}
-    outputList = []
-    cnt = 1
-    for n in L:
-        if n not in result:
-            result[n] = cnt
-        else:
-            result[n] = result[n] + 1
-    for k in result.keys():
-        if result[k] >= N:
-            outputList.append(k)
-    print(outputList)
+    dict1 = Counter(L)
+    result = []
+    for val in dict1.keys():
+        if dict1[val] >= N:
+            result.append(val)
+    print(result)
 
 
 mylist = ['a','b','b','b','a','c', 'c', 'd']
