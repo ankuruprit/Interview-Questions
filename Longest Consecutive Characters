@@ -1,0 +1,22 @@
+# Longest Consecutive Characters
+
+def longest_char(word):
+    cnt = 0
+    max_count = 0
+    prev_char = ''
+    max_char = ''
+    for char in word:
+        if char == prev_char:
+            cnt += 1
+        else:
+            cnt = 1
+        if cnt > max_count:
+            max_count = cnt
+            max_char = char
+        prev_char = char
+    print({max_char: max_count})
+
+
+
+word = 'BBACDEEEBAA'
+longest_char(word)
