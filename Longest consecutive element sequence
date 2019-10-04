@@ -1,20 +1,23 @@
 # For example, given [100, 4, 200, 1, 3, 2], the longest consecutive element sequence is [1, 2, 3, 4]. Return its length: 4.
 
 
-
 def longseq(arr):
     arr.sort()
     print(arr)
-    pivotpos = 0
-    for cur in range(1, len(arr)):
-        if arr[pivotpos] + 1 == arr[cur]:
-            pivotpos = cur
-            continue
+    prev_num = 0
+    cnt = 0
+    max_cnt = 0
+    for current in arr:
+        if current - prev_num == 1:
+            cnt += 1
         else:
-            break
-    print(len(arr[:cur]))
+            cnt = 0
 
+        if cnt > max_cnt:
+            max_cnt = cnt
+        prev_num = current
+    print(max_cnt + 1)
 
-arr = [100, 4, 200, 1, 3, 2, 5]
+arr = [100, 4, 200,201, 202, 203, 204, 1, 3, 5, 6, 7, 8]
 
 longseq(arr)
