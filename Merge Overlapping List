@@ -1,4 +1,5 @@
-# Given a list of possibly overlapping intervals, return a new list of intervals where all overlapping intervals have been merged.
+# Given a list of possibly overlapping intervals, return a new list of intervals where all overlapping intervals 
+# have been merged.
 
 # The input list is not necessarily ordered in any way.
 
