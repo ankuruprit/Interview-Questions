@@ -5,28 +5,23 @@
 # Explanation: The answer is "abc", with the length of 3.
 
 
-def longest_substring(s, cnt_list):
-    new_list = list(s)
-    temp_list = []
-    new_s = ''
+
+def longest_substring(word):
     cnt = 0
-    for i in range(len(new_list)):
-        if new_list[i] not in temp_list:
-            temp_list.append(new_list[i])
-            cnt += 1
-            new_s = ''
+    max_count = 0
+    prev_char = ''
+    max_char = ''
+    for char in word:
+        if char == prev_char:
+            cnt = 1
         else:
-            cnt_list.append(cnt)
-            new_s = ''.join(new_list[len(temp_list):])
-            if len(new_s) > 1:
-                longest_substring(new_s, cnt_list)
-                return
-            else:
-                break
-    cnt_list.append(cnt)
-    print('The largest substring count is {0}'.format(max(cnt_list)))
+            cnt += 1
+        if cnt > max_count:
+            max_count = cnt
+        prev_char = char
+    print(max_count)
 
 
 
 s = 'abcabcbbqwertyuiop'
-longest_substring(s, cnt_list=[])
+longest_substring(s)
