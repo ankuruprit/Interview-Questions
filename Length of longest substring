@@ -4,13 +4,10 @@
 # Output: 3
 # Explanation: The answer is "abc", with the length of 3.
 
-
-
 def longest_substring(word):
     cnt = 0
     max_count = 0
     prev_char = ''
-    max_char = ''
     for char in word:
         if char == prev_char:
             cnt = 1
@@ -20,8 +17,6 @@ def longest_substring(word):
             max_count = cnt
         prev_char = char
     print(max_count)
-
-
 
 s = 'abcabcbbqwertyuiop'
 longest_substring(s)
