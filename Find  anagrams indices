@@ -10,15 +10,15 @@ def isanagram(w1, w2):
 
 def anagram_indices(w2, s):
     result = []
-    pivotpos = 1
-    for i in s:
-        w1 = i + s[pivotpos]
+    pivotpos = len(w2)
+    for i in range(len(s)):
+        w1 = s[i:pivotpos]
         if isanagram(w1, w2) or (w1 == w2):
-            result.append(pivotpos - 1)
+            result.append(i)
         if pivotpos < len(s) - 1:
             pivotpos += 1
     print(result)
 
-w2 = 'ab'
-s = 'abxabarbcba'
+w2 = 'abc'
+s = 'abcxabarbabcba'
 anagram_indices(w2, s)
