@@ -12,6 +12,8 @@ def getnums(listnums, k):
     if sumval == k:
       print(finallist)
       break
+    elif sumval > k:
+      break
  
   if listlen > 0:
     listnums.pop(0)      
