@@ -6,28 +6,29 @@
 
 
 
-def longest_substring(s, cnt_list):
-    new_list = list(s)
-    temp_list = []
-    new_s = ''
-    cnt = 0
-    for i in range(len(new_list)):
-        if new_list[i] not in temp_list:
-            temp_list.append(new_list[i])
-            cnt += 1
-            new_s = ''
-        else:
-            cnt_list.append(cnt)
-            new_s = ''.join(new_list[len(temp_list):])
-            if len(new_s) > 1:
-                longest_substring(new_s, cnt_list)
-                return
+class longest():
+    def __init__(self):
+        self.cnt_list = []
+
+    def longest_substring(self, s):
+        new_list = list(s)
+        temp_list = []
+        for i in range(len(new_list)):
+            if new_list[i] not in temp_list:
+                temp_list.append(new_list[i])
             else:
-                break
-    cnt_list.append(cnt)
-    print('The largest substring count is {0}'.format(max(cnt_list)))
+                self.cnt_list.append(len(temp_list))
+                new_s = ''.join(new_list[len(temp_list):])
+                if len(new_s) > 1:
+                    self.longest_substring(new_s)
+                    return
+                else:
+                    break
+        self.cnt_list.append(len(temp_list))
+        print('The largest substring count is {0}'.format(max(self.cnt_list)))
 
 
-
-s = 'abcabcbbqwertyuiop'
-longest_substring(s, cnt_list=[])
+if __name__ == '__main__':
+    ll = longest()
+    s = 'abcabcplomngdterbbqwertyuiop'
+    ll.longest_substring(s)
